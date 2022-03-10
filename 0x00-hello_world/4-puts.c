@@ -1,5 +1,13 @@
 #include <stdio.h>
-int main(void){
-	puts("Programming is like building a multilingual puzzle\n");
-	return 0;
+/**
+   * main - print to screen
+   *
+   * Return: zero
+   */
+int main(void)
+{
+	char Mystr[] = "\"Programming is like building a multilingual puzzle";
+
+	puts(Mystr);
+	return (0);
 }
