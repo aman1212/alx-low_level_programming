@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-int main() {
-int n=rand();
-
-if(n >0)
+#include <time.h>
+int main(void)
 {
-printf("is positive");
-}
-else
+int n;
+srand(time(0));
+n = rand() - RAND_MAX / 2;
+if (n > 0)
 {
-if(n<0)
+printf("%d is positive\n", n);
+}
+if (n < 0)
 {
-printf("is negative");
+printf("%d is negative\n", n);
 }
-else
+if (n == 0)
 {
-printf("is zero");
+printf("%d is zero\n", n);
 }
-}
-return 0;
+return (0);
 }
