@@ -1,40 +1,35 @@
-#include "main.h"
 #include <stdio.h>
-
 /**
- * main - Fizz for multiples of 3 and Buzz for multiples of 5 FizzBuzz for both
- *
- *
- * Return: Always 0
- */
+* main -checks for upper case
+*
+* @void: return nothing
+* Return: 1 for digit and 0 for else
+*/
 int main(void)
 {
- int x = 1;
-
- while (x < 101)
+ int i;
+ for (i = 1; i <= 100; i++)
  {
-		if (x % 3 == 0 && x % 5 == 0)
+		if (i == 100)
 		{
-			printf("%s", "FizzBuzz");
+			printf("Buzz");
 		}
-		else if (x % 3 == 0)
+		else if ((i % 3) == 0 && (i % 5) == 0)
 		{
-			printf("%s", "Fizz");
+			printf("FizzBuzz ");
 		}
-		else if (x % 5 == 0)
+		else if ((i % 3) == 0)
 		{
-			printf("%s", "Buzz");
+			printf("Fizz ");
+		}
+		else if ((i % 5) == 0)
+		{
+			printf("Buzz ");
 		}
 		else
 		{
-			printf("%d", x);
+			printf("%d ", i);
 		}
-
-		if (x != 100)
-		{
-			printf(" ");
-		}
-		x++;
  }
  printf("\n");
  return (0);
