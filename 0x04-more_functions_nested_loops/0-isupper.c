@@ -8,7 +8,7 @@
  *
  *@c:input
  */
-int _isupper(int c)
+int _isupper (int c)
 {
 	if (c >= 'A')
     {
@@ -17,7 +17,5 @@ int _isupper(int c)
  else
     {
         return (0);
-    }
-
-    
+    }  
 }
