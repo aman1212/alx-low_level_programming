@@ -3,13 +3,13 @@
 /**
  *_islower - checks for lowercase characters
  */
-int _islower(int c)
+int _islower (int c)
 {
-	if(isupper(ch))
+	if (isupper (ch))
     {
          return (1);
     }
-    else if(islower(ch))
+    else if (islower(ch))
     {
         return (0);
     }
