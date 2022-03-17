@@ -1,20 +1,23 @@
 #include "main.h"
-#include <ctype.h>
 /**
  *_islower - checks for lowercase characters
+ *
+ *Description: checks for lowercase
+ *
+ *Return:  1 - l0wercase 0 - otherwise
+ *
+ *@c:input
  */
-int _islower (int c)
+int _isupper(int c)
 {
-	if (isupper (ch))
+	if (c >= 'A')
     {
-         return (1);
+        return (1);
     }
-    else if (islower(ch))
-    {
-        return (0);
-    }
-    else
+ else
     {
         return (0);
     }
+
+    
 }
