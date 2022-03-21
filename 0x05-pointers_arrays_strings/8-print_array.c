@@ -1,13 +1,11 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
- * print_array - prints n elements of an array of integers, followed by a new line line
- * @a : to be printed
- * @n : the number of elements of the array to be printed
- * Return:void
- */
-
+* print_array -change value using the pointer address
+*
+*@a: stores the input
+*@n: stores the input
+*/
 void print_array(int *a, int n)
 {
 int i;
@@ -21,4 +19,3 @@ printf(", ");
 }
 printf("\n");
 }
-
