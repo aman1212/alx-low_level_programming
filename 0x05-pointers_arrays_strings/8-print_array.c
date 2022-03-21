@@ -19,7 +19,6 @@ if (i != (n - 1))
 {
 _putchar(',');
 }
-}
 _putchar('\n');
 }
 
