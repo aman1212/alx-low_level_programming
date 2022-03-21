@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * rameter and updates the value it points to to 98
- * @c : character to check
- * Return:0 or 1
+ * prameter and updates the value it points to to 98
+ * @n : addressto variable 
+ * Return:notting
  */
 void reset_to_98(int *n)
 {
