@@ -15,9 +15,9 @@ for (i = 0; i < l ; i++)
 {
 if (i > n)
 {
-putchar(*str);
+_putchar(*str);
 }
 str++;
 }
-putchar('\n');
+_putchar('\n');
 }
