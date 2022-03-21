@@ -14,9 +14,9 @@ for (i = 0; i < l ; i++)
 {
 if (i % 2 == 0)
 {
-putchar(*str);
+_putchar(*str);
 }
 str++;
 }
-putchar('\n');
+_putchar('\n');
 }
