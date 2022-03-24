@@ -1,5 +1,4 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
 * _strcat -change value using the pointer address
 *
