@@ -1,24 +1,28 @@
 #include "main.h"
 
 /**
- * swap_int - function that concatenates two strings
- * @dest: pointer
- * @src: pointer
- * Return:0 or 1
- */
-
+* _strcat -change value using the pointer address
+*
+*@dest: stores the input
+*@src: source
+*Return: dest
+*/
 char *_strcat(char *dest, char *src)
 {
-while (*dest)  
+int i;
+int j;
+i = 0;
+while (dest[i] != '\0')
 {
-dest++;   
+i++;
 }
-while (*src)   
+j = 0;
+while (src[j] != '\0')
 {
-*dest = *src;
-src++;
-dest++;
+dest[i] = src[j];
+i++;
+j++;
 }
-*dest = '\0';
-return dest;
+dest[i] = '\0';
+return (dest);
 }
