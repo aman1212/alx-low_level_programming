@@ -1,17 +1,22 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
-* _memset -memset
-*
-*@s: pointer
-*@b: value to be saved
-*@n: number of characters
-*Return: dest
-*/
+ * *_memset - fills memory with a constant byte.
+ * @s: pointer to put the constant
+ * @b: constant
+ * @n: max bytes to use
+ * Return: s
+ */
+
+
 char *_memset(char *s, char b, unsigned int n)
 {
-unsigned int index;
-char *memory = s, value = b;
-for (index = 0; index < n; index++)
-memory[index] = value;
-return s;
+unsigned int i;
+
+for (i = 0; n > 0 ; i++, n--)
+{
+	s[i] = b;
+}
+
+return (s);
 }
