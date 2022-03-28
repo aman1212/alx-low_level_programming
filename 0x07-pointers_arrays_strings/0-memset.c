@@ -15,5 +15,5 @@ unsigned int index;
 char *memory = s, value = b;
 for (index = 0; index < n; index++)
 memory[index] = value;
-return (memory);
+return s;
 }
