@@ -1,23 +1,29 @@
-#include <stdlib.h>
 #include "main.h"
-
+#include <stdlib.h>
 /**
- * array_range - allocate a 2d integer grid
+ * array_range - creates an array of integers.
+ * @min: minimum value.
+ * @max: maximum value.
  *
- * @min: minimum of grid
- * @max: maximum of grid
- * Return: returns pointer to grid created
+ * Return: pointer to the newly created array.
+ * if man > mix, returns NULL.
+ * if malloc fails, returns NULL.
  */
 int *array_range(int min, int max)
 {
-int *p, i;
-if (min > max)
-return (NULL);
-p = malloc(((max - min) + 1) * sizeof(int));
-if (p == NULL)
-return (NULL);
-i = 0;
-while (min <= max)
-p[i++] = min++;
-return (p);
+	int *ar;
+	int i;
+
+	if (min > max)
+		return (NULL);
+
+	ar = malloc(sizeof(*ar) * ((max - min) + 1));
+
+	if (ar == NULL)
+		return (NULL);
+
+	for (i = 0; min <= max; i++, min++)
+		ar[i] = min;
+
+	return (ar);
 }
