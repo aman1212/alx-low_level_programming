@@ -1,5 +1,5 @@
-#include <main.h>
-#include "holberton.h"
+#include <stdlib.h>
+#include "main.h"
 
 /**
  * array_range - allocate a 2d integer grid
