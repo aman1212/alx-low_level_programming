@@ -4,7 +4,7 @@
  *
  *@b:input
  *
- *Description:prints sign
+ *Description:allocate size
  *
  *Return: address
  *
@@ -15,7 +15,10 @@ void *malloc_checked(unsigned int b)
     char *x;
     
     x = malloc(b);
-    
-    return x;
+    if (x == NULL)
+    {
+    exit(98);
+    }
+    return (x);
      
 }
