@@ -1,25 +1,15 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdlib.h>
 /**
- *malloc_checked - allocate memory
- *
- *@b:input
- *
- *Description:allocate size
- *
- *Return: address
- *
- */
-
+* malloc_checked - crete memory allocation
+* @b: int
+*Return: pointer
+*/
 void *malloc_checked(unsigned int b)
 {
-    char *x;
-    
-    x = malloc(b);
-    if (x == NULL)
-    {
-    exit(98);
-    }
-    return (x);
-     
+void *p;
+p = malloc(b);
+if (p == NULL)
+exit(98);
+return (p);
 }
