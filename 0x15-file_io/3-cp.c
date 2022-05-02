@@ -1,65 +1,52 @@
 #include "main.h"
+#include <stdio.h>
+
+#define MAXSIZE 1204
+#define SE STDERR_FILENO
+
 /**
- * main - copies contents of one file to another
- * @ac: num of arguments, must be exactly 3
- * @av: file names
+ * main - create the copy bash script
+ * @ac: argument count
+ * @av: arguments as strings
  * Return: 0
  */
-int main(int ac, char **av)
+int main(int ac, char *av[])
 {
-	char buf[1024];
-	int i;
-	int fd, fd2;
+	int input_fd, output_fd, istatus, ostatus;
+	char buf[MAXSIZE];
+	mode_t mode;
 
+	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	if (ac != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		dprintf(SE, "Usage: cp file_from file_to\n"), exit(97);
+	input_fd = open(av[1], O_RDONLY);
+	if (input_fd == -1)
+		dprintf(SE, "Error: Can't read from file %s\n", av[1]), exit(98);
+	output_fd = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, mode);
+	if (output_fd == -1)
+		dprintf(SE, "Error: Can't write to %s\n", av[2]), exit(99);
 
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
-	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (fd2 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
-	}
-
-	while ((i = read(fd, buf, 1024)) > 0)
-	{
-		i = write(fd2, buf, i);
-
-		if (i == -1)
+	do {
+		istatus = read(input_fd, buf, MAXSIZE);
+		if (istatus == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-			exit(99);
+			dprintf(SE, "Error: Can't read from file %s\n", av[1]);
+			exit(98);
 		}
-	}
-	if (i == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+		if (istatus > 0)
+		{
+			ostatus = write(output_fd, buf, (ssize_t) istatus);
+			if (ostatus == -1)
+				dprintf(SE, "Error: Can't write to %s\n", av[2]), exit(99);
+		}
+	} while (istatus > 0);
 
-	fd = close(fd);
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
-
-	fd2 = close(fd2);
-	if (fd2 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-		exit(100);
-	}
+	istatus = close(input_fd);
+	if (istatus == -1)
+		dprintf(SE, "Error: Can't close fd %d\n", input_fd), exit(100);
+	ostatus = close(output_fd);
+	if (ostatus == -1)
+		dprintf(SE, "Error: Can't close fd %d\n", output_fd), exit(100);
 
 	return (0);
 }
-
